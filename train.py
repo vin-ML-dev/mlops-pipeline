@@ -27,7 +27,7 @@ logit_model = logit_model.fit(X_train, y_train)
 
 # Cross validation
 #cv = StratifiedKFold(n_splits=3) 
-val_logit = cross_val_score(logit_model, X_train, y_train, cv=cv).mean()
+val_logit = cross_val_score(logit_model, X_train, y_train, cv=5).mean()
 
 #train_acc = lo
 # Validation accuracy to JSON
