@@ -14,13 +14,13 @@ pipeline {
             stage('Preprocessing stage') {
             steps {
                    sh 'python3 preprocessing.py'
-                   echo 'Data prepared'
+                   echo "Data prepared"
                }
            }
            stage('Training stage') {
             steps {
                     sh 'python3 train.py'
-                    sh 'model trained'
+                    echo "model trained"
                 }
         }
         stage('Test stage') {
