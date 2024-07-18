@@ -1,0 +1,33 @@
+pipeline {
+ 
+    agent {
+    docker {
+          image 'jupyter/scipy-notebook'
+          args '-u root:root'
+          reuseNode true
+      }    
+    }
+     
+    stages {
+        
+          
+            stage('Preprocessing stage') {
+            steps {
+                   sh 'python3 preprocessing.py'
+                   echo 'Data prepared'
+               }
+           }
+           stage('Training stage') {
+            steps {
+                    sh 'python3 train.py'
+                    sh 'model trained'
+                }
+        }
+        stage('Test stage') {
+              steps {
+                   
+                    sh 'python3 test.py'
+                    }
+               }
+    }
+}
