@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'vin1989/my-mlops:1.0'
-            args '--privileged -v /var/run/docker.sock:/var/run/docker.sock'
+            
             args '-u root:root'
             reuseNode true
         }
