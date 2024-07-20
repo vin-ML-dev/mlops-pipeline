@@ -47,7 +47,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    
+                    sh 'docker --version'
                     sh "docker build -t $DOCKER_IMAGE ."
                     sh "docker push $DOCKER_IMAGE"
                 }
