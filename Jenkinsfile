@@ -1,14 +1,14 @@
 pipeline {
     agent {
         docker {
-            image 'vin1989/mlimage:1.0'
+            image 'vin1989/sklearn-image:1.0'
             args '-v /var/run/docker.sock:/var/run/docker.sock'
             reuseNode true
         }
     }
 
     environment {
-        DOCKER_REGISTRY = "docker.io/vin1989"
+        
         DOCKER_IMAGE = "mlops-image"
         CONTAINER_NAME = "my-model"
         
