@@ -3,6 +3,7 @@ pipeline {
         docker {
             image 'vin1989/sklearn-image:1.0'
             args '-v /var/run/docker.sock:/var/run/docker.sock'
+            args '-u root:root'
             reuseNode true
         }
     }
