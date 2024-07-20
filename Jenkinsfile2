@@ -17,6 +17,7 @@ pipeline {
           
             stage('Preprocessing stage') {
             steps {
+                   sh 'apt-get update'
                    sh 'apt install docker.io -y'
                    sh 'docker --version'
                    sh 'python3 preprocessing.py'
