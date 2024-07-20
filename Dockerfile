@@ -1,9 +1,13 @@
-FROM jupyter/scipy-notebook
+# Use the official Ubuntu image as the base image
+FROM vin1989/mlimage
 
 WORKDIR /app
+# Copy your application code
+COPY . /app
 
-COPY . .
+# Expose any necessary ports
+EXPOSE 5000
 
-RUN pip install --no-cache-dir -r requirements.txt
+# Default command
+CMD ["python3", "app.py"]
 
-CMD ["python","app.py"]
