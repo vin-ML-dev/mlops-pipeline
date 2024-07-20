@@ -7,6 +7,10 @@ pipeline {
           reuseNode true
       }    
     }
+    
+    environment {
+         CONTAINER_NAME = "my-model"
+    }
      
     stages {
         
@@ -29,5 +33,23 @@ pipeline {
                     sh 'python3 test.py'
                     }
                }
+               
+        stage('build docker image') {
+            
+            steps {
+               sh "docker build -t mlops-demo-jenkins ."
+               
+                }
+        }
+        
+        stage('Run docker image'){
+         steps {
+              sh 'docker stop $CONTAINER_NAME || true'
+              sh 'docker rm $CONTAINER_NAME || true'
+              sh 'docker run -p 5000:5000 --name $CONTAINER_NAME  mlops-demo-jenkins'
+              
+         }
+         
+        }
     }
 }
