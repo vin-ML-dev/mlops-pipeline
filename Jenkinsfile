@@ -1,8 +1,8 @@
 pipeline {
     agent {
         docker {
-            image 'vin1989/sklearn-image:1.0'
-           
+            image 'vin1989/ml-image:1.1'
+            args '--privileged -v /var/run/docker.sock:/var/run/docker.sock'
             args '-u root:root'
             reuseNode true
         }
@@ -21,7 +21,7 @@ pipeline {
         
         stage('Preprocessing stage') {
             steps {
-                   sh 'systemctl status docker'
+                  
 
                    sh 'python3 preprocessing.py'
                    echo "Data prepared"
