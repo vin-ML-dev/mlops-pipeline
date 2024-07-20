@@ -20,8 +20,7 @@ pipeline {
                    sh 'apt-get update'
                    sh 'apt install docker.io -y'
                    sh 'docker --version'
-                   sh 'systemctl daemon-reload'
-                   sh 'systemctl restart docker'
+                   sh 'service docker restart'
 
                    sh 'python3 preprocessing.py'
                    echo "Data prepared"
