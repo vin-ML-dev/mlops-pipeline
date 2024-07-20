@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'vin1989/mlimage'
+            image 'docker.io/vin1989/mlimage:latest'
             args '-v /var/run/docker.sock:/var/run/docker.sock'
             reuseNode true
         }
