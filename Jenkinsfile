@@ -3,7 +3,7 @@ pipeline {
         docker {
             image 'vin1989/mlimage'
             args '-v /var/run/docker.sock:/var/run/docker.sock'
-            resuseNode true
+            reuseNode true
         }
     }
 
@@ -16,11 +16,7 @@ pipeline {
     }
 
     stages {
-        stage('Clone Repository') {
-            steps {
-                git 'https://github.com/vin-ML-dev/mlops-pipeline.git'
-            }
-        }
+        
         
         stage('Preprocessing stage') {
             steps {
