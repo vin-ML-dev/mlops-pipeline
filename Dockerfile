@@ -1,5 +1,5 @@
 # Use the official Ubuntu image as the base image
-FROM vin1989/ml-image:1.1
+FROM vin1989/ml-image:1.2
 
 WORKDIR /app
 # Copy your application code
