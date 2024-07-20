@@ -20,7 +20,6 @@ pipeline {
                    sh 'apt-get update'
                    sh 'apt install docker.io -y'
                    sh 'docker --version'
-                   sh 'usermod -aG docker jenkins'
                    sh 'systemctl daemon-reload'
                    sh 'systemctl restart docker'
 
